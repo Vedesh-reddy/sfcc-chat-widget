@@ -1,0 +1,38 @@
+{
+  "name": "sfcc-chat-widget",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "SFRA shopping assistant widget: catalog, cart, account, checkout and order reviews in one panel, with a privacy-safe journey trail.",
+  "author": "Vedesh Reddy",
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vedesh-reddy/sfcc-chat-widget.git"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "lint:js": "eslint cartridges scripts --ext .js",
+    "lint:css": "stylelint 'cartridges/plugin_chatwidget/cartridge/client/default/scss/**/*.scss' --custom-syntax postcss-scss",
+    "lint:isml": "node scripts/check-templates.js",
+    "lint:docs": "node scripts/check-docs.js",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:isml && npm run lint:docs",
+    "validate": "npm run lint && npm run build",
+    "package:metadata": "node scripts/package-metadata.js"
+  },
+  "devDependencies": {
+    "webpack": "5.106.2",
+    "sass": "1.99.0",
+    "eslint": "8.57.1",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "9.1.2",
+    "eslint-plugin-import": "2.32.0",
+    "isml-linter": "5.43.14",
+    "stylelint": "15.11.0",
+    "stylelint-config-standard-scss": "11.1.0",
+    "postcss-scss": "4.0.9",
+    "archiver": "7.0.1"
+  }
+}

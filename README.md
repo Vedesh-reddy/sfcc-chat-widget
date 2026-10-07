@@ -59,6 +59,12 @@ plugin_chatwidget:app_storefront_base:modules
 | --- | --- | --- |
 | ![Saved card and CVV](docs/images/checkout-payment.png) | ![Review and place order](docs/images/checkout-review.png) | ![Order placed](docs/images/order-confirmation.png) |
 
+### The order is real
+
+The widget places genuine SFCC orders through `CheckoutServices-PlaceOrder`. The store's own confirmation email arrived for order 00000102 with the same total, variant, saved card and shipping method chosen in the widget:
+
+<img src="docs/images/order-confirmation-email.png" alt="Order confirmation email for 00000102, total $213.14" width="520">
+
 The [shopper guide](docs/SHOPPER-GUIDE.md) shows all 42 states: browsing, search with and without results, coupon errors, sign-in and registration errors, password reset, the address book, saved cards, orders, checkout, review consent, sign-out and mobile.
 
 ### In Business Manager

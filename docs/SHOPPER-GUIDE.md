@@ -2,7 +2,7 @@
 
 [← README](../README.md) · [Merchant guide](MERCHANT-GUIDE.md) · [Architecture](ARCHITECTURE.md)
 
-Every screen and outcome of the assistant, captured on sandbox `zyeu-002`, site `RefArch_Practice`, on October 7, 2026, with headless Chrome.
+Every screen and outcome of the assistant, captured on sandbox `zyeu-002`, site `RefArch_Practice`, on October 7, 2026, with headless Chrome. Emails were supplied by the author.
 
 ### 1. Launcher and start menu
 
@@ -71,6 +71,10 @@ The reset response is the same whether or not the account exists, so the widget 
 | --- | --- |
 | ![Delete confirmation](images/address-delete-confirm.png) | ![Address deleted](images/address-deleted.png) |
 
+Address changes go through SFRA's own `Address-SaveAddress` and `Address-DeleteAddress`, so the shopper also receives the store's standard "Account edited" email:
+
+![Account edited email sent after the widget changed the address book](images/account-edited-email.png)
+
 | Saved cards | Order history | Order details |
 | --- | --- | --- |
 | ![Masked saved Visa](images/saved-cards.png) | ![Order list](images/order-history.png) | ![Order details](images/order-details.png) |
@@ -86,9 +90,18 @@ The reset response is the same whether or not the account exists, so the widget 
 | ![Review and place order](images/checkout-review.png) | ![Order 00000102 placed](images/order-confirmation.png) |
 
 The security code goes only to `CheckoutServices-SubmitPayment` and is never stored.
-The store's standard confirmation email follows:
 
-![Order confirmation email for 00000102](images/order-confirmation-email.png)
+#### Proof the order is real
+
+The widget places a genuine SFCC order through `CheckoutServices-PlaceOrder`. The store's
+standard confirmation email arrived at 16:52 for the same order number and total the widget
+showed (00000102, $213.14), with the variant, saved card, address and shipping method chosen
+in the widget:
+
+![Order confirmation email for 00000102, total $213.14](images/order-confirmation-email.png)
+
+The order's journey in Business Manager carries the same order number and the review
+([see below](MERCHANT-GUIDE.md#journeys-and-reviews)).
 
 ### 8. Review the order and sign out
 
